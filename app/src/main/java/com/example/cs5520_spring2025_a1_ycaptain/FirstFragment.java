@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
@@ -33,6 +33,14 @@ public class FirstFragment extends Fragment {
                 NavHostFragment.findNavController(FirstFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment)
         );
+
+        view.findViewById(R.id.button_about_me).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String aboutMeInfo = getString(R.string.about_me_info);
+                Toast.makeText(getContext(), aboutMeInfo, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override
