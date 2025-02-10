@@ -1,5 +1,6 @@
 package com.example.cs5520_spring2025_a1_ycaptain;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,10 +30,13 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonFirst.setOnClickListener(v ->
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment)
-        );
+        binding.buttonQuicCalc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), QuicCalcActivity.class);
+                startActivity(intent);
+            }
+        });
 
         view.findViewById(R.id.button_about_me).setOnClickListener(new View.OnClickListener() {
             @Override

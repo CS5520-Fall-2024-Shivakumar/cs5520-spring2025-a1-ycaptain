@@ -5,5 +5,13 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.Cs5520spring2025a1ycaptain" parent="Base.Theme.Cs5520spring2025a1ycaptain" />
+    <style name="Theme.Cs5520spring2025a1ycaptain" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- ... other theme attributes ... -->
+    </style>
+
+    <!-- AppBarOverlay theme -->
+    <style name="Theme.Cs5520spring2025a1ycaptain.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <!-- PopupOverlay theme -->
+    <style name="Theme.Cs5520spring2025a1ycaptain.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
