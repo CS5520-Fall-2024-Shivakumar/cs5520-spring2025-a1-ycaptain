@@ -1,10 +1,12 @@
 package com.example.cs5520_spring2025_a1_ycaptain;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class QuicCalcActivity extends AppCompatActivity {
     private TextView displayText;
@@ -14,6 +16,14 @@ public class QuicCalcActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quic_calc);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setTitle("Quic Calc");
+        }
 
         displayText = findViewById(R.id.displayText);
         displayText.setText("CALC");
@@ -53,6 +63,15 @@ public class QuicCalcActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void setButtonClickListener(int buttonId, String value) {
         findViewById(buttonId).setOnClickListener(v -> {
             if (currentExpression.toString().equals("CALC")) {
@@ -64,14 +83,26 @@ public class QuicCalcActivity extends AppCompatActivity {
     }
 
     private String evaluateExpression(String expression) {
-        String[] parts;
-        if (expression.contains("+")) {
-            parts = expression.split("\\+");
-            return String.valueOf(Integer.parseInt(parts[0]) + Integer.parseInt(parts[1]));
-        } else if (expression.contains("-")) {
-            parts = expression.split("-");
-            return String.valueOf(Integer.parseInt(parts[0]) - Integer.parseInt(parts[1]));
+        try {
+            String[] parts;
+            if (expression.contains("+")) {
+                parts = expression.split("\\+");
+                long result = Long.parseLong(parts[0]) + Long.parseLong(parts[1]);
+                if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
+                    return "Error";
+                }
+                return String.valueOf(result);
+            } else if (expression.contains("-")) {
+                parts = expression.split("-");
+                long result = Long.parseLong(parts[0]) - Long.parseLong(parts[1]);
+                if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
+                    return "Error";
+                }
+                return String.valueOf(result);
+            }
+            return expression;
+        } catch (NumberFormatException e) {
+            return "Error";
         }
-        return expression;
     }
 } 

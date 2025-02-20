@@ -13,27 +13,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp"/>
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintBottom_toTopOf="@id/button_about_me"/>
 
     <Button
         android:id="@+id/button_about_me"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="About Me"
+        android:layout_marginTop="16dp"
+        app:layout_constraintWidth_percent="0.4"
         app:layout_constraintTop_toBottomOf="@id/textview_hello"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        app:layout_constraintBottom_toTopOf="@id/button_quic_calc"/>
 
     <Button
         android:id="@+id/button_quic_calc"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Quic Calc"
+        android:layout_marginTop="16dp"
+        app:layout_constraintWidth_percent="0.4"
         app:layout_constraintTop_toBottomOf="@id/button_about_me"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
-
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,163 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
         android:id="@+id/displayText"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="end"
+        android:padding="16dp"
         android:text="CALC"
-        android:textSize="24sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:textSize="24sp" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_vertical_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.15" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_vertical_end"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.85" />
+        <Button
+            android:id="@+id/button1"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:text="1"
+            app:layout_constraintEnd_toStartOf="@id/button2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.3" />
 
-    <!-- Create a vertical chain for all rows -->
-    <Button
-        android:id="@+id/button7"
-        style="@style/CalcButton"
-        android:text="7"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@id/displayText"
-        app:layout_constraintBottom_toTopOf="@id/button4"
-        app:layout_constraintStart_toStartOf="@id/guideline_vertical_start"
-        app:layout_constraintEnd_toStartOf="@id/button8"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        android:layout_marginTop="8dp"/>
+        <Button
+            android:id="@+id/button2"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:text="2"
+            app:layout_constraintEnd_toStartOf="@id/button3"
+            app:layout_constraintStart_toEndOf="@id/button1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.3" />
 
-    <Button
-        android:id="@+id/button8"
-        style="@style/CalcButton"
-        android:text="8"
-        app:layout_constraintTop_toTopOf="@id/button7"
-        app:layout_constraintStart_toEndOf="@id/button7"
-        app:layout_constraintEnd_toStartOf="@id/button9"/>
+        <Button
+            android:id="@+id/button3"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:text="3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/button2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.3" />
 
-    <Button
-        android:id="@+id/button9"
-        style="@style/CalcButton"
-        android:text="9"
-        app:layout_constraintTop_toTopOf="@id/button7"
-        app:layout_constraintStart_toEndOf="@id/button8"
-        app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"/>
+        <Button
+            android:id="@+id/button4"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:text="4"
+            app:layout_constraintEnd_toStartOf="@id/button5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button1"
+            app:layout_constraintWidth_percent="0.3" />
 
-    <Button
-        android:id="@+id/button4"
-        style="@style/CalcButton"
-        android:text="4"
-        app:layout_constraintTop_toBottomOf="@id/button7"
-        app:layout_constraintBottom_toTopOf="@id/button1"
-        app:layout_constraintStart_toStartOf="@id/guideline_vertical_start"
-        app:layout_constraintEnd_toStartOf="@id/button5"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        android:layout_marginTop="8dp"/>
+        <Button
+            android:id="@+id/button5"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="5"
+            app:layout_constraintEnd_toStartOf="@id/button6"
+            app:layout_constraintStart_toEndOf="@id/button4"
+            app:layout_constraintTop_toBottomOf="@id/button2"
+            app:layout_constraintWidth_percent="0.3" />
 
-    <Button
-        android:id="@+id/button5"
-        style="@style/CalcButton"
-        android:text="5"
-        app:layout_constraintTop_toTopOf="@id/button4"
-        app:layout_constraintStart_toEndOf="@id/button4"
-        app:layout_constraintEnd_toStartOf="@id/button6"/>
+        <Button
+            android:id="@+id/button6"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/button5"
+            app:layout_constraintTop_toBottomOf="@id/button3"
+            app:layout_constraintWidth_percent="0.3" />
 
-    <Button
-        android:id="@+id/button6"
-        style="@style/CalcButton"
-        android:text="6"
-        app:layout_constraintTop_toTopOf="@id/button4"
-        app:layout_constraintStart_toEndOf="@id/button5"
-        app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"/>
+        <Button
+            android:id="@+id/button7"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:text="7"
+            app:layout_constraintEnd_toStartOf="@id/button8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button4"
+            app:layout_constraintWidth_percent="0.3" />
 
-    <Button
-        android:id="@+id/button1"
-        style="@style/CalcButton"
-        android:text="1"
-        app:layout_constraintTop_toBottomOf="@id/button4"
-        app:layout_constraintBottom_toTopOf="@id/buttonPlus"
-        app:layout_constraintStart_toStartOf="@id/guideline_vertical_start"
-        app:layout_constraintEnd_toStartOf="@id/button2"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        android:layout_marginTop="8dp"/>
+        <Button
+            android:id="@+id/button8"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="8"
+            app:layout_constraintEnd_toStartOf="@id/button9"
+            app:layout_constraintStart_toEndOf="@id/button7"
+            app:layout_constraintTop_toBottomOf="@id/button5"
+            app:layout_constraintWidth_percent="0.3" />
 
-    <Button
-        android:id="@+id/button2"
-        style="@style/CalcButton"
-        android:text="2"
-        app:layout_constraintTop_toTopOf="@id/button1"
-        app:layout_constraintStart_toEndOf="@id/button1"
-        app:layout_constraintEnd_toStartOf="@id/button3"/>
+        <Button
+            android:id="@+id/button9"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/button8"
+            app:layout_constraintTop_toBottomOf="@id/button6"
+            app:layout_constraintWidth_percent="0.3" />
 
-    <Button
-        android:id="@+id/button3"
-        style="@style/CalcButton"
-        android:text="3"
-        app:layout_constraintTop_toTopOf="@id/button1"
-        app:layout_constraintStart_toEndOf="@id/button2"
-        app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"/>
+        <Button
+            android:id="@+id/buttonPlus"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:text="+"
+            app:layout_constraintEnd_toStartOf="@id/button0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button7"
+            app:layout_constraintWidth_percent="0.3" />
 
-    <Button
-        android:id="@+id/buttonPlus"
-        style="@style/CalcButton"
-        android:text="+"
-        app:layout_constraintTop_toBottomOf="@id/button1"
-        app:layout_constraintBottom_toTopOf="@id/buttonX"
-        app:layout_constraintStart_toStartOf="@id/guideline_vertical_start"
-        app:layout_constraintEnd_toStartOf="@id/button0"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        android:layout_marginTop="8dp"/>
+        <Button
+            android:id="@+id/button0"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="0"
+            app:layout_constraintEnd_toStartOf="@id/buttonMinus"
+            app:layout_constraintStart_toEndOf="@id/buttonPlus"
+            app:layout_constraintTop_toBottomOf="@id/button8"
+            app:layout_constraintWidth_percent="0.3" />
 
-    <Button
-        android:id="@+id/button0"
-        style="@style/CalcButton"
-        android:text="0"
-        app:layout_constraintTop_toTopOf="@id/buttonPlus"
-        app:layout_constraintStart_toEndOf="@id/buttonPlus"
-        app:layout_constraintEnd_toStartOf="@id/buttonMinus"/>
+        <Button
+            android:id="@+id/buttonMinus"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="-"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/button0"
+            app:layout_constraintTop_toBottomOf="@id/button9"
+            app:layout_constraintWidth_percent="0.3" />
 
-    <Button
-        android:id="@+id/buttonMinus"
-        style="@style/CalcButton"
-        android:text="-"
-        app:layout_constraintTop_toTopOf="@id/buttonPlus"
-        app:layout_constraintStart_toEndOf="@id/button0"
-        app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"/>
+        <Button
+            android:id="@+id/buttonX"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:text="X"
+            app:layout_constraintEnd_toStartOf="@id/buttonEquals"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonPlus"
+            app:layout_constraintWidth_percent="0.3" />
 
-    <Button
-        android:id="@+id/buttonX"
-        style="@style/CalcButton"
-        android:text="x"
-        app:layout_constraintTop_toBottomOf="@id/buttonPlus"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@id/guideline_vertical_start"
-        app:layout_constraintEnd_toStartOf="@id/buttonEquals"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"/>
+        <Button
+            android:id="@+id/buttonEquals"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="="
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/buttonX"
+            app:layout_constraintTop_toBottomOf="@id/button0"
+            app:layout_constraintWidth_percent="0.63" />
 
-    <Button
-        android:id="@+id/buttonEquals"
-        style="@style/CalcButton"
-        android:text="="
-        app:layout_constraintTop_toTopOf="@id/buttonX"
-        app:layout_constraintStart_toEndOf="@id/buttonX"
-        app:layout_constraintEnd_toEndOf="@id/guideline_vertical_end"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout> 
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout> 

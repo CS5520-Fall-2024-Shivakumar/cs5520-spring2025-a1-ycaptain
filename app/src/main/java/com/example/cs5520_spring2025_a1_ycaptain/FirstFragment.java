@@ -41,8 +41,8 @@ public class FirstFragment extends Fragment {
         view.findViewById(R.id.button_about_me).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String aboutMeInfo = getString(R.string.about_me_info);
-                Toast.makeText(getContext(), aboutMeInfo, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getActivity(), AboutMeActivity.class);
+                startActivity(intent);
             }
         });
     }

@@ -36,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+
+        // Add Contact Collector button click listener
+        binding.buttonContacts.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, ContactsActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override
